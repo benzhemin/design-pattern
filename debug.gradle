@@ -1,0 +1,11 @@
+
+tasks.register('listSpotlessMethods') {
+    doLast {
+        // We need to access the spotless extension. 
+        // In a separate script, we might need to find it.
+        println "Spotless extension methods:"
+        project.extensions.findByName('spotless').java.class.methods.each { 
+            if (it.name.contains('checkstyle')) println it
+        }
+    }
+}

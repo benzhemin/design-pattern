@@ -1,0 +1,14 @@
+
+tasks.register('checkMethods') {
+    doLast {
+        def spotless = project.extensions.findByName('spotless')
+        def java = spotless.java
+        println "Java Extension Class: ${java.class.name}"
+        println "Methods containing 'checkstyle':"
+        java.class.methods.each { 
+            if (it.name.toLowerCase().contains('checkstyle')) {
+                println " - ${it}"
+            }
+        }
+    }
+}

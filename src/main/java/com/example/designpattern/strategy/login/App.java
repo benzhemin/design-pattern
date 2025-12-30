@@ -10,10 +10,11 @@ public class App {
     LoginStrategy passwordStrategy = new PasswordLoginStrategy();
     LoginStrategy wechatStrategy = new WechatLoginStrategy();
 
-    LoginStrategyFactory factory = new LoginStrategyFactory(
-        Map.of(
-            passwordStrategy.getLoginType(), passwordStrategy,
-            wechatStrategy.getLoginType(), wechatStrategy));
+    LoginStrategyFactory factory =
+        new LoginStrategyFactory(
+            Map.of(
+                passwordStrategy.getLoginType(), passwordStrategy,
+                wechatStrategy.getLoginType(), wechatStrategy));
 
     LoginStrategy strategy = factory.getStrategy("Wechat");
 

@@ -12,16 +12,14 @@ plugins {
     id 'com.diffplug.spotless' version '6.25.0'
 }
 
-spotless {
-    java {
-        googleJavaFormat('1.22.0')
-    }
-}
+
 
 checkstyle {
     toolVersion = "10.21.1"
     configFile = rootProject.file('config/checkstyle/google_checks.xml')
 }
+
+
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -65,4 +63,11 @@ application {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+spotless {
+    java {
+        target 'src/main/java/**/*.java', 'src/test/java/**/*.java'
+        googleJavaFormat()
+    }
 }
