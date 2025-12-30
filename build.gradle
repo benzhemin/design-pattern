@@ -12,6 +12,12 @@ plugins {
     id 'com.diffplug.spotless' version '6.25.0'
 }
 
+spotless {
+    java {
+        googleJavaFormat('1.22.0')
+    }
+}
+
 checkstyle {
     toolVersion = "10.21.1"
     configFile = rootProject.file('config/checkstyle/google_checks.xml')

@@ -3,7 +3,7 @@ package com.example.designpattern.strategy.login;
 import java.util.Map;
 
 public interface LoginStrategy {
-    String getLoginType();
+  String getLoginType();
 
-    boolean execute(Map<String, String> params);
+  boolean execute(Map<String, String> params);
 }
